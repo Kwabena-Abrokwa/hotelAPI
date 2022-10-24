@@ -1,5 +1,20 @@
 import HotelModel from "../Model/HotelModel.js";
 
+export const getHotel = async (req, res) => {
+	try {
+		const getAllHostel = await HotelModel.find();
+
+		if (getAllHostel) {
+			return res.status(200).json(getAllHostel);
+		}
+	} catch (error) {
+		console.log("====================================");
+		console.log(error);
+		console.log("====================================");
+		return res.status(200).json("Something went wrong");
+	}
+};
+
 export const addHotel = async (req, res) => {
 	try {
 		const { hotelName, country, roomStatus, roomDescription, image } =
