@@ -9,16 +9,15 @@ const app = express();
 //config env
 dotenv.config();
 
-app.get("/", (req, res) => {
-	res.status(200).send("Hello Baaba, welcome to your server 🥰");
-})
-
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 //api endpoints
 app.use("/api/admin", AdminRoutes);
+app.get("/", (req, res) => {
+	res.status(200).json({ message: "Hello Baaba, welcome to your server 🥰" });
+});
 
 const PORT = 8083 || process.env.PORT;
 

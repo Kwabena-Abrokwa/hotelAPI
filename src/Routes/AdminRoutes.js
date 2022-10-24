@@ -5,4 +5,7 @@ const router = express.Router();
 
 router.post("/createHotel", addHotel);
 
+
+router.post("/createHotel", addHotel);
+
 export default router;
